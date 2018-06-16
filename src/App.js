@@ -32,7 +32,7 @@ class App extends Component {
     axios.get('https://joes-autos.herokuapp.com/api/vehicles').then( results => {
       toast.success("Successfully got Vehicles.");
       this.setState({ 'vehiclesToDisplay': results.data });
-    }).catch( ()=> toast.error("Failed at fetching Vehicles") );
+    }).catch( ()=> toast.error("Ouch! You failed at fetching Vehicles") );
   }
 
   getPotentialBuyers() {
@@ -69,7 +69,7 @@ class App extends Component {
     axios.put('https://joes-auto.herokuapp.com/api/vehicles/${ id }/${ priceChange }').then( results => {
       toast.success("Successfully updated price.");
       this.setState({ 'vehiclesToDisplay': results.data.vehicles });
-    }).catch( () => toast.error("Failed to update price") );
+    }).catch( () => toast.error("Failed to update price. What? Are you cheap or something???") );
   }
 
   addCar() {
@@ -84,7 +84,7 @@ class App extends Component {
     axios.post('https://joes-auto.herokuapp.com/api/vehicles', newCar).then( results => {
       toast.success("Successfully added a new vehicle!");
       this.setState({ vehiclesToDisplay: results.data.vehicles });
-    }).catch( () => toast.error('Failed to add a new vehicle.') );
+    }).catch( () => toast.error('Failed to add a new vehicle. You\'\re so poor') );
   }
 
   addBuyer() {
@@ -227,6 +227,9 @@ class App extends Component {
             <option value="indigo">Indigo</option>
             <option value="violet">Violet</option>
             <option value="teal">Teal</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="gray">Gray</option>
           </select>
 
           <input  onChange={ this.nameSearch }
